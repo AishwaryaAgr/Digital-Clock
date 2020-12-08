@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel ="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id ="clock"> 01:12:24 </div>
+    <script type="text/javascript">
+        var mils = 0 ;
+        var hour =0 ;
+        var min =0;
+        var sec =0;
+        var flag='x';
+        // mils = (mils< 10) ? "0"+mils : mils ;
+
+        function fun(){
+            var time = new Date();
+            hour = time.getHours();
+            min = time.getMinutes();
+            sec = time.getSeconds();
+            flag= 'AM';
+            if(hour > 12){
+            hour -= 12;
+            flag='PM';
+            }
+            if(hour==0){
+                hour=12;
+            }
+            console.log(hour);
+        }
+
+        function showTime(){
+            
+            sec++;
+            if(hour<10){
+                hour%=10;
+                hour = "0"+hour ;
+            }
+            if(min<10){
+                min%=10;
+                min = "0" + min;
+            }
+            if(sec<10){
+                sec%=10;
+                sec = "0" +sec;
+            }
+            
+            if(sec>=60){
+                sec -=60;
+                min++;
+            }
+            if(min>=60){
+                min-=60;
+                hour++;
+            }
+            if(hour>12){
+                hour-=12;
+                flag= (flag == 'AM') ? 'PM' : 'AM';
+            }
+            if(sec==0)
+                sec = "0" +sec;
+            var currTime = hour + ":" + min + ":" + sec + " "+ flag ;
+            
+            document.getElementById("clock").innerHTML = currTime;
+            setTimeout(showTime, 1000);
+        }
+        fun();
+        showTime();
+
+    </script>
+
+</body>
+</html>

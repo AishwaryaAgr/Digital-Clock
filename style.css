@@ -1,0 +1,22 @@
+*{
+    background: whitesmoke;
+    font-family: 'Big Shoulders Inline Text', cursive;
+    font-size: 200px;
+    text-align: center;
+}
+body{
+    position: absolute;
+    top: 300px;
+    text-align: center;
+    color: goldenrod;
+    height: 2000px;
+    width: 100%;
+    background: rgb(75, 189, 160);
+    margin: 0%;
+    vertical-align: center;
+    letter-spacing: 12px;
+}
+body .clock {
+    position: absolute;
+    top: 0px;
+}
